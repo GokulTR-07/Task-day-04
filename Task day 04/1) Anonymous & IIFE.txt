@@ -1,0 +1,207 @@
+1. Do the below programs in anonymous function & IIFE.
+
+
+a) Print odd numbers in an array.
+
+var arr = [1,2,3,4,5,6];
+var odd = function(arr){
+    let temp = [];
+    for (var i=0; i<arr.length; i++){
+        if(arr[i]%2!==0){
+           temp.push(arr[i]);
+        }
+    }
+    return temp;
+};
+console.log(odd(arr));
+
+
+var arr = [1,2,3,4,5,6];
+(function(arr){
+    let temp = [];
+    for (var i=0; i<arr.length; i++){
+        if(arr[i]%2!==0){
+           temp.push(arr[i]);
+        }
+    }
+    console.log(temp);
+})(arr);
+
+
+b) Convert all the strings to title caps in a string array
+
+var arr = ["i","am","baCk"];
+var strarr = arr.join(" ").toLowerCase().split(" ");
+var res = function (strarr){
+    
+    for(var i=0; i<strarr.length; i++){
+        strarr[i] = strarr[i].charAt(0).toUpperCase() + strarr[i].slice(1); 
+    }
+    return strarr;
+};
+console.log(res(strarr));
+
+
+var arr = ["i","am","baCk"];
+var strarr = arr.join(" ").toLowerCase().split(" ");
+(function (strarr){
+    for(var i=0; i<strarr.length; i++){
+        strarr[i] = strarr[i].charAt(0).toUpperCase() + strarr[i].slice(1); 
+    }
+    console.log(strarr);
+})(strarr);
+
+
+c) Sum of all numbers in an array
+
+var arr = [1,2,3,4,5,6];
+
+let sum = function(arr){
+    let res = arr.reduce((acc,item)=>acc+item);
+    console.log(res);
+};
+sum(arr);
+
+
+var arr = [1,2,3,4,5,6];
+
+(function(arr){
+    let res = arr.reduce((acc,item)=>acc+item);
+    console.log(res);
+})(arr);
+
+
+d) Return all the prime numbers in an array
+
+var arr = [2,4,5,6,7,8,9];
+
+let prime = function(arr){
+    let temp = [];
+    for (var i=2; i<=arr.length; i++){
+        var primenumber = true;
+        for(var res=2; res<=i; res++){
+            if(i%res ===0 && res!==i)
+            primenumber = false;
+        }
+        if (primenumber===true)
+        temp.push(i);
+    }
+    return temp;
+};
+console.log(prime(arr));
+
+
+var arr = [2,4,5,6,7,8,9];
+
+(function(arr){
+    let temp = [];
+    for (var i=2; i<=arr.length; i++){
+        var primenumber = true;
+        for(var res=2; res<=i; res++){
+            if(i%res ===0 && res!==i)
+            primenumber = false;
+        }
+        if (primenumber===true)
+        temp.push(i);
+    }
+    console.log(temp);
+})(arr);
+
+
+
+e) Return all the palindromes in an array.
+
+var arr = ["mom","dad","son","nun"];
+
+var pal = function(arr){
+  let temp = [];
+  for(var i=0; i<arr.length; i++){
+      if(arr[i] === arr[i].split("").reverse().join("")){
+          temp.push(arr[i]);
+      }
+  }
+  return temp;
+};
+console.log(pal(arr));
+
+
+var arr = ["mom","dad","son","nun"];
+
+(function(arr){
+  let temp = [];
+  for(var i=0; i<arr.length; i++){
+      if(arr[i] === arr[i].split("").reverse().join("")){
+          temp.push(arr[i]);
+      }
+  }
+  console.log(temp);
+})(arr);
+
+
+f) Return median of two sorted arrays of the same size.
+
+var arr1 = [2,3,5,8,9];
+var arr2 = [4,7,10,13,15];
+
+var median = function(a,b){
+    let c = [...arr1,...arr2].sort((a,b)=>a-b);
+    let n = c.length /2 ;
+    if(c.length%2) return c[n];
+    return(c[n]+c[n-1])/2;
+    
+};
+console.log(median(arr1,arr2));
+
+
+var arr1 = [2,3,5,8,9];
+var arr2 = [4,7,10,13,15];
+
+(function(arr1,arr2){
+    let c = [...arr1,...arr2].sort((a,b)=>a-b);
+    let n = c.length /2 ;
+    if(c.length%2) return c[n];
+    console.log((c[n]+c[n-1])/2);
+    
+})(arr1,arr2);
+
+
+g) Remove duplicates from an array
+
+let arr = ["a","a","b","b","b","c","d"];
+
+var dupli = function(arr){
+    return [ ...new Set(arr)];
+};
+console.log(dupli(arr));*/
+
+
+let arr = ["a","a","b","b","b","c","d"];
+
+(function(arr){
+    console.log([ ...new Set(arr)]);
+})(arr);
+
+
+h) Rotate an array by k times
+
+var arr = [1,2,3,4,5,6,7];
+var k = 4;
+var res = function(arr,k){
+    for(let i=0; i<k; i++){
+        arr.unshift(arr.pop());
+    }
+    return arr;
+};
+console.log(res(arr,k));
+
+
+var arr = [1,2,3,4,5,6,7];
+
+(function(arr){
+    let k = 4;
+    for(let i=0; i<k; i++){
+        arr.unshift(arr.pop());
+    }
+    console.log(arr);
+})(arr);
+
